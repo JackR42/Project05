@@ -17,3 +17,12 @@ stages:
       inputs:
         terraformVersion: 'latest'
 
+    - task: TerraformTaskV3@3
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'SPN-Project05'
+        backendAzureRmResourceGroupName: 'S2-RG-Project05-CORE'
+        backendAzureRmStorageAccountName: 'storagecrproject05230710'
+        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmKey: 'main.tfstate'
