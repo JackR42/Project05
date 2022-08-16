@@ -56,3 +56,4 @@ stages:
         deployType: 'SqlTask'
         SqlFile: 'dba01.sql'
         IpDetectionMethod: 'AutoDetect'
+
