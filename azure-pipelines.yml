@@ -18,6 +18,7 @@ stages:
         terraformVersion: 'latest'
 
     - task: TerraformTaskV3@3
+      displayName: TF_Init
       inputs:
         provider: 'azurerm'
         command: 'init'
@@ -26,3 +27,11 @@ stages:
         backendAzureRmStorageAccountName: 'storagecrproject05230710'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'main.tfstate'
+        
+    - task: TerraformTaskV3@3
+      displayName: 'TF_Plan'
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        commandOptions: '-out=main.tfplan -input=false -var-file=vars-dev.tfvars'
+        environmentServiceNameAzureRM: 'SPN-Project05'
